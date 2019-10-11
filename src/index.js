@@ -15,7 +15,7 @@ class App extends React.Component {
 
   componentDidUpdate() {}
 
-  render() {
+  renderContent() {
     if (this.state.errorMessage) {
       return <div>Error: {this.state.errorMessage}</div>;
     }
@@ -24,7 +24,15 @@ class App extends React.Component {
       return <SeasonDisplay lat={this.state.lat}></SeasonDisplay>;
     }
 
-    return <Spinner />;
+    return <Spinner message="Please Accept Location.." />;
+  }
+
+  render() {
+    return (
+      <div className="border red">
+        {this.renderContent()}
+      </div>
+    );
   }
 }
 
